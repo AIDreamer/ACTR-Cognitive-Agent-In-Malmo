@@ -1,0 +1,82 @@
+(clear-all)
+
+(define-model first-model
+  (sgp :esc t :lf .05 :trace-detail high)
+  
+  ;-----------------
+  ;DECLARTIVE MEMORY
+  ;-----------------
+
+  (chunk-type count-order first second)
+  (chunk-type count-from start end count)
+
+  (add-dm
+   ; Define some facts
+   (b ISA count-order first 1 second 2)
+   (c ISA count-order first 2 second 3)
+   (d ISA count-order first 3 second 4)
+   (e ISA count-order first 5 second 6)
+   
+   ; Define the main goal here
+   (first-goal ISA count-from start 1 end 6)
+  )
+
+  (goal-focus first-goal)
+
+  ;-----------------
+  ;PROCEDURAL MEMORY
+  ;-----------------
+
+  ; Start production
+  (p start
+     =goal>
+     ISA     count-from
+     start   =num1
+     count   nil
+     
+     ==>
+     =goal>
+     ISA     count-from
+     count   =num1
+
+     +retrieval>
+     ISA     count-order
+     first   =num1
+   )
+
+  ; Increment production
+  (p increment
+     =goal>
+     ISA     count-from
+     count   =num1
+     - end   =num1
+     
+     =retrieval>
+     ISA     count-order
+     first   =num1
+     second  =num2
+     
+     ==>
+     =goal>
+     ISA     count-from
+     count   =num2
+     
+     +retrieval>
+     ISA     count-order
+     first   =num2
+     !output! (=num2)
+   )
+
+  ; Stop production when both numbers are the same
+  (p stop
+     =goal>
+     ISA     count-from
+     count   =num
+     end     =num
+
+     ==>
+     -goal>
+     !output! (=num)
+   )
+
+)

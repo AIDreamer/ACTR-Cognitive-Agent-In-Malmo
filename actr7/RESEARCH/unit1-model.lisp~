@@ -1,0 +1,33 @@
+(clear-all)
+
+(define-model tutor-model
+    
+(sgp :esc t :lf .05 :trace-detail medium)
+
+
+;; CHUNK-TYPES
+
+(chunk-type addition-fact addend1 addend2 sum)
+(chunk-type add-pair one1 ten1 one2 ten2 one-ans ten-ans carry)
+
+;; CHUNKS
+
+(add-dm
+ ; The facts
+ (fact34 ISA addition-fact addend1 3 addend2 4 sum 7)
+ (fact67 ISA addition-fact addend1 6 addend2 7 sum 13)
+ (fact103 ISA addition-fact addend1 10 addend2 3 sum 13)
+ (fact17 ISA addition-fact addend1 1 addend2 7 sum 8)
+
+ ; The goal
+ (g1 ISA add-pair one1 6 ten1 3 one2 7 ten2 4)
+)
+
+;; Add productions here
+
+
+
+
+
+(goal-focus goal)
+)

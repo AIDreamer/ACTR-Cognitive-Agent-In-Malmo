@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: actr6-jni
+Version: 1.4.0
+Summary: A high level library wrapper for the ACT-R JNI using Twisted.
+Home-page: https://github.com/RyanHope/json-network-interface
+Author: Ryan Hope
+Author-email: rmh3093@gmail.com
+License: GPL-3
+Description: TODO!
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Framework :: Twisted
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities

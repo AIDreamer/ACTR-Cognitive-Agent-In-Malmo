@@ -1,0 +1,15 @@
+# Cognitive Agents in Malmo
+
+This project is about setting up a robust connection between ACT-R and Malmo so that an ACT-R model in Lisp can received information from Minecraft and act on Minecraft environment.
+* Malmo: An interface that allows interaction between Minecraft and Python, Lua, Java, etc. Installation instruction can be viewed in official project page
+* ACT-R 7: A cognitive architecture based on a Unified Theory of Cognition by Alan Newell.
+
+### Common Lisp dependencies
+* JSON Network Interface: A module to communicate ACT-R with other languages through TCP.
+* jsown
+* bordeaux-threads
+* usocket
+
+### Python dependencies
+* twisted
+* PIL
